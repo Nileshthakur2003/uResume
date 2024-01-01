@@ -158,6 +158,7 @@ function removeSkillField(serial)
 
 function makeResume(){
 
+    var i=0;
     // collecting data
     var data = {
         "fname":document.getElementById("first_name").value,
@@ -169,6 +170,20 @@ function makeResume(){
         "skills":[],
     }
     // filling education
+    var ed_data = document.getElementById("professional").getElementsByClassName("ed_field");
+    var ed_data_obj ={};
+    
+    for(i=0;i<ed_data.length;i++)
+    {
+        ed_data_obj = {
+            "institute":ed_data[i].getElementById("institute").value,
+            "course":ed_data[i].getElementById("course").value,
+            "gpa":ed_data[i].getElementById("gpa").value,
+            "year":ed_data[i].getElementById("year").value,
+            "descript":ed_data[i].getElementById("descript").value
+        };
+        data["education"].push(pf_data_obj);
+    }
 
 
 
@@ -179,20 +194,25 @@ function makeResume(){
     for(i=0;i<pf_data.length;i++)
     {
         pf_data_obj = {
-            "institute":,
-            "course":,
-            "year":,
-            "gpa":,
-            "descript":
+            "org":pf_data[i].getElementById("orgp").value,
+            "duration":pf_data[i].getElementById("durationp").value,
+            "position":pf_data[i].getElementById("positionp").value,
+            "location":pf_data[i].getElementById("locationp").value,
+            "descript":pf_data[i].getElementById("descriptp").value
         };
+        data["proffesion"].push(pf_data_obj);
     }
 
 
     // filling skills
     var skfields = document.getElementById("sk_field").getElementsByClassName("notice");
     for(i=0;i<skfields.length;i++){
-        data["skills"][i].push(skfields[i].innerText);
+        data["skills"].push(skfields[i].innerText);
     }
+
+
+
+    console.log(data);
 
 
 
