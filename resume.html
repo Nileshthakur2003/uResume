@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+<style type="text/css">
+</style>
+<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<center>
+	<div id="formInput">
+	<h2>Resumé Builder</h2>
+		<h3>Personal Details</h3>
+	<p>
+		<label>Name : </label>
+		<input type="text" id="first_name" placeholder="First name"/>
+		<input type="text" id="last_name" placeholder="Last name"/>
+	</p>
+	<p>
+		<label>Email : </label>
+		<input type="email" id="email" placeholder="Email"/>
+		<label>Phone/Mobile: </label>
+		<input type="text" id="phone" placeholder="(code)XX-XXXXX-XXX"/>
+	</p>
+	<hr>
+	<h3>Education :- <button onclick="addEducationField(1)">+</button></h3>
+	<p id="education">
+		<div style="border: 5px ridge black;margin:10px;padding:10px;" class="ed_field" serial="1">
+		<input type="text" name="institute" placeholder="Institution Name"/>
+		<input type="text" name="year" placeholder="Session{20XX-XX}"/>
+		<br>
+		<input type="text" name="course" placeholder="Course Name"/>
+		<input type="number" name="gpa" placeholder="GPA"/>
+		<textarea name="descript" placeholder="Describe your course in points..."></textarea>
+		</div>
+
+	</p>
+	
+		<hr>
+
+	<h3>Professional Experience<button onclick="addProffField()">+</button></h3>
+
+	<p id="professional">
+		<div style="border: 5px ridge black;margin:10px;padding:10px;" class="pf_field" serial="1">
+		<input type="text" name="org" placeholder="Organisation Name"/>
+		<input type="text" name="duration" placeholder="MM-YY,MM-YY"/>
+		<br>
+		<input type="text" name="position" placeholder="Position Name"/>
+		<input type="text" name="location" placeholder="Location"/>
+		<textarea name="descript" placeholder="Describe your accomplishments in points..."></textarea>
+		</div>
+  </p>
+	<hr>
+
+	<h3>Skills :- </h3>
+
+	<p id="skills">
+		<div style="border: 5px ridge black;margin:10px;padding:10px;">
+		<input type="text" id="skill" placeholder="Add Skill. i.e. HTML5"/>
+		<button onclick="addSkill()">+add</button>
+		<p id="sk_field">
+		 
+		</p>
+		</div>
+  	</p>
+	  <hr>
+	  <button onclick="makeResume()">Build my Resumé</button>
+
+	</div>
+
+	<div class="resumeOutput" style="position:absolute;background:black;width: 21cm;height: 29.7cm;top:20px;left:10cm">
+	<h3></h3>
+
+	</div>
+
+</center>
+</body>
+</html>
