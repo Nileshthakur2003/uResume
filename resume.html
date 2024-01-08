@@ -7,7 +7,7 @@
 <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
-<center>
+<center id="main">
 	<div id="formInput">
 	<h2>Resumé Builder</h2>
 		<h3>Personal Details</h3>
@@ -24,7 +24,7 @@
 	</p>
 	<hr>
 	<h3>Education :- <button onclick="addEducationField(1)">+</button></h3>
-	<p id="education">
+	<div id="education">
 		<div style="border: 5px ridge black;margin:10px;padding:10px;" class="ed_field" serial="1">
 		<input type="text" id="institute" placeholder="Institution Name"/>
 		<input type="text" id="year" placeholder="Session{20XX-XX}"/>
@@ -34,13 +34,13 @@
 		<textarea id="descript" placeholder="Describe your course in points..."></textarea>
 		</div>
 
-	</p>
+	</div>
 	
 		<hr>
 
 	<h3>Professional Experience<button onclick="addProffField()">+</button></h3>
 
-	<p id="professional">
+	<div id="professional">
 		<div style="border: 5px ridge black;margin:10px;padding:10px;" class="pf_field" serial="1">
 		<input type="text" id="orgp" placeholder="Organisation Name"/>
 		<input type="text" id="durationp" placeholder="MM-YY,MM-YY"/>
@@ -49,7 +49,7 @@
 		<input type="text" id="locationp" placeholder="Location"/>
 		<textarea id="descript" placeholder="Describe your accomplishments in points..."></textarea>
 		</div>
-  </p>
+	</div>
 	<hr>
 
 	<h3>Skills :- </h3>
@@ -67,12 +67,82 @@
 	  <button onclick="makeResume()">Build my Resumé</button>
 
 	</div>
-
-	<!--<div class="resumeOutput" style="position:absolute;background:black;width: 21cm;height: 29.7cm;top:20px;left:10cm">
-	<h3></h3>
-
-	</div>-->
-
 </center>
+<div id="wrapper" style="display:none;">
+	<p style="text-align: center;">
+		<b id="__name">Jane Doe</b>
+		<br><i id="__email">ugvudjgjhgjh</i>|<i id="__phone">duyfuihgfiufhgiud</i></p>
+	<hr />
+	<div style="padding:10px">
+		<h3 style="text-align: center;">
+		<strong>Education</strong></h3>
+	<hr/>
+	<p id="__education_field">
+		<strong>sfhgghbtjlkhjlgfhg&nbsp;</strong>
+		<i style="float:right">9798787</i>
+		<br><strong>sfhgghbtjlkhjlgfhg&nbsp;</strong>
+		
+		<ul>
+			<li>gvcbbgkjhlgljhgpokjomhbkjojkoijbmoijoijf</li>
+			<li>jhobmiofjiojiojkohfkjfpohkjmopkjo</li>
+			<li>jbimiyioujiohjbiomjiojiojy</li>
+		</ul>
+	</p>
+	<p><strong>sfhgghbtjlkhjlgfhg&nbsp;</strong> 
+	<ul>
+	<li>gvcbbgkjhlgljhgpokjomhbkjojkoijbmoijoijf</li>
+	<li>jhobmiofjiojiojkohfkjfpohkjmopkjo</li>
+	<li>jbimiyioujiohjbiomjiojiojy</li>
+	</ul>
+	
+	</p>
+	<p>&nbsp;</p>
+	<h3 style="text-align: center;">
+		<strong>Professional Experience</strong></h3>
+	<hr />
+	<p id="__professional_field">
+		<strong>sfhgghbtjlkhjlgfhg&nbsp;</strong>
+		<i style="float:right">9798787</i>
+	<ul>
+	<li>gvcbbgkjhlgljhgpokjomhbkjojkoijbmoijoijf</li>
+	<li>jhobmiofjiojiojkohfkjfpohkjmopkjo</li>
+	<li>jbimiyioujiohjbiomjiojiojy</li>
+	</ul>
+	<p><strong>sfhgghbtjlkhjlgfhg&nbsp;</strong>
+	<ul>
+	<li>gvcbbgkjhlgljhgpokjomhbkjojkoijbmoijoijf</li>
+	<li>jhobmiofjiojiojkohfkjfpohkjmopkjo</li>
+	<li>jbimiyioujiohjbiomjiojiojy</li>
+	</ul>
+	</p>
+	</p>
+	<p>&nbsp;</p>
+	<h3 style="text-align: center;">
+		<strong>Skills</strong></h3>
+	<hr/>
+	<table style="height: 56px;" width="100%" id="__skills__">
+	<tbody>
+	<tr>
+	<td style="width: 210.05px;">Skill1</td>
+	<td style="width: 210.05px;">Skill2</td>
+	<td style="width: 210.1px;">Skill3</td>
+	</tr>
+	<tr>
+	<td style="width: 210.05px;">..</td>
+	<td style="width: 210.05px;">..</td>
+	<td style="width: 210.1px;">..</td>
+	</tr>
+	<tr>
+	<td style="width: 210.05px;">..</td>
+	<td style="width: 210.05px;">..</td>
+	<td style="width: 210.1px;">..</td>
+	</tr>
+	</tbody>
+	</table>
+	<button  onclick="pprint_hmain()">download image save</button>
+	<button  onclick="hprint_smain()"><< go back</button>
+	</div>
+
+</div>
 </body>
 </html>

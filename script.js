@@ -170,18 +170,19 @@ function makeResume(){
         "skills":[],
     }
     // filling education
-    var ed_data = document.getElementById("professional").getElementsByClassName("ed_field");
+    var ed_data = document.getElementById("education").getElementsByClassName("ed_field");
     var ed_data_obj ={};
-    
+    console.log(ed_data.length);
     for(i=0;i<ed_data.length;i++)
     {
         ed_data_obj = {
-            "institute":ed_data[i].getElementById("institute").value,
-            "course":ed_data[i].getElementById("course").value,
-            "gpa":ed_data[i].getElementById("gpa").value,
-            "year":ed_data[i].getElementById("year").value,
-            "descript":ed_data[i].getElementById("descript").value
+            "institute":ed_data[i].children[0].value,
+            "course":ed_data[i].children[1].value,
+            "year":ed_data[i].children[3].value,
+            "gpa":ed_data[i].children[4].value,
+            "descript":ed_data[i].children[5].value
         };
+
         data["education"].push(pf_data_obj);
     }
 
@@ -194,11 +195,11 @@ function makeResume(){
     for(i=0;i<pf_data.length;i++)
     {
         pf_data_obj = {
-            "org":pf_data[i].getElementById("orgp").value,
-            "duration":pf_data[i].getElementById("durationp").value,
-            "position":pf_data[i].getElementById("positionp").value,
-            "location":pf_data[i].getElementById("locationp").value,
-            "descript":pf_data[i].getElementById("descriptp").value
+            "org":pf_data[i].children[0].value,
+            "duration":pf_data[i].children[1].value,
+            "position":pf_data[i].children[3].value,
+            "location":pf_data[i].children[4].value,
+            "descript":pf_data[i].children[5].value
         };
         data["proffesion"].push(pf_data_obj);
     }
@@ -210,13 +211,62 @@ function makeResume(){
         data["skills"].push(skfields[i].innerText);
     }
 
+    set_resume_page(data);
+    document.getElementById("main").style.display="none";
+    document.getElementById("wrapper").style.display="inline-block";
+}
+function pprint_hmain(){
+    window.print();
+}
+function hprint_smain(){
+    document.getElementById("wrapper").style.display="none";
+    document.getElementById("main").style.display="inline-block";
+}
+function set_resume_page(pdata){
+    // 
+    document.getElementById("__name").innerText = pdata["fname"]+" "+pdata["lname"];
+    document.getElementById("__email").innerText = pdata["email"];
+    document.getElementById("__phone").innerText = pdata["phone"];
+    console.log(pdata["education"][0]["institute"]);
+    var i = 0;
 
+    while(i<=pdata["education"].length){
+        //
+    var institute = document.createElement("strong");
+    institute.innerText = pdata["education"][i]["institute"];
+    var course = document.createElement("strong");
+    course.innerText = pdata["education"][i]["course"];
+    var duration = document.createElement("i");
+    duration.innerText = pdata["education"][i]["year"];
+    
+    document.getElementById("__education_field").innerHTML="";
+    var target_ed = document.getElementById("__education_field");
 
-    console.log(data);
+    target_ed.appendChild(institute);
+    target_ed.appendChild(course);
+    target_ed.appendChild(duration);
 
+    i++;
+    }
 
+    i=0;
 
+    while(i<=pdata["proffesion"].length){
+    //
+    var org = document.createElement("strong");
+    org.innerText = pdata["proffesion"][i]["org"];
+    var position = document.createElement("strong");
+    position.innerText = pdata["proffesion"][i]["position"];
+    var duration = document.createElement("i");
+    duration.innerText = pdata["proffesion"][i]["duration"];
+    
+    document.getElementById("__professional_field").innerHTML="";
+    var target_ed = document.getElementById("__professional_field");
+    
+    target_ed.appendChild(org);
+    target_ed.appendChild(position);
+    target_ed.appendChild(duration);
 
-
-
+    i++;
+    }
 }
